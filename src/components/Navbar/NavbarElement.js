@@ -4,6 +4,7 @@ import { Link as LinkR } from "react-router-dom";
 export const Nav = styled.nav`
   background: ${({ scrollNav }) => (scrollNav ? "#FFFFFF" : "#FFFFFF")};
   height: 70px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

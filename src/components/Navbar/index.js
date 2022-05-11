@@ -19,6 +19,12 @@ import img2 from "../images/img4.jpg";
 import img1 from "../images/shortLogo.PNG";
 import Search from "../searchbar/search";
 import { GET } from "../../services/httpClient";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import Divider from "@mui/material/Divider";
+import Logout from "@mui/icons-material/Logout";
+import PasswordIcon from "@mui/icons-material/Password";
 
 const styles = {
   NavbarAvater: {
@@ -70,6 +76,7 @@ const Navbar = ({ toggle }) => {
   const [rows, setRows] = useState("");
   const [count, setCount] = useState(0);
   const [notification, setNotification] = React.useState(false);
+  const [name, setName] = useState("");
   const getNotification = async () => {
     let data = await GET("/tourist/notification", {
       params: { isRead: false },
@@ -79,15 +86,26 @@ const Navbar = ({ toggle }) => {
       setCount(data.count);
     }
   };
-
+  const getName = async () => {
+    let data = await GET("/tourist/id");
+    if (data) setName(`${data.firstName} ${data.lastName}`);
+  };
   useEffect(() => {
     getNotification();
+    getName();
   }, []);
 
   useEffect(() => {
     window.addEventListener("scroll", changeNav);
   }, []);
-
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <>
       <IconContext.Provider value={{ color: "Black" }}>
@@ -182,15 +200,76 @@ const Navbar = ({ toggle }) => {
                   <NotificationsNoneIcon style={{ color: "fb9e00" }} />
                 </Badge>
               </IconButton>
-              <Stack direction="row" spacing={2}>
-                <StyledBadge
-                  overlap="circular"
-                  anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-                  variant="dot"
-                >
-                  <Avatar alt="Remy Sharp" src={img2} />
-                </StyledBadge>
-              </Stack>
+              <IconButton
+                onClick={handleClick}
+                size="small"
+                sx={{ ml: 2 }}
+                aria-controls={open ? "account-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : undefined}
+              >
+                <Stack direction="row" spacing={2}>
+                  <StyledBadge
+                    overlap="circular"
+                    anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                    variant="dot"
+                  >
+                    <Avatar alt="Remy Sharp" src={img2} />
+                  </StyledBadge>
+                </Stack>
+              </IconButton>
+              <Menu
+                anchorEl={anchorEl}
+                id="account-menu"
+                open={open}
+                onClose={handleClose}
+                onClick={handleClose}
+                PaperProps={{
+                  elevation: 0,
+                  sx: {
+                    overflow: "visible",
+                    filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                    mt: 1.5,
+                    "& .MuiAvatar-root": {
+                      width: 32,
+                      height: 32,
+                      ml: -0.5,
+                      mr: 1,
+                    },
+                    "&:before": {
+                      content: '""',
+                      display: "block",
+                      position: "absolute",
+                      top: 0,
+                      right: 14,
+                      width: 10,
+                      height: 10,
+                      bgcolor: "background.paper",
+                      transform: "translateY(-50%) rotate(45deg)",
+                      zIndex: 0,
+                    },
+                  },
+                }}
+                transformOrigin={{ horizontal: "right", vertical: "top" }}
+                anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+              >
+                <MenuItem>
+                  <Avatar /> {name}
+                </MenuItem>
+                <Divider />
+                <MenuItem>
+                  <ListItemIcon>
+                    <PasswordIcon fontSize="small" />
+                  </ListItemIcon>
+                  Change Password
+                </MenuItem>
+                <MenuItem>
+                  <ListItemIcon>
+                    <Logout fontSize="small" />
+                  </ListItemIcon>
+                  Logout
+                </MenuItem>
+              </Menu>
             </NavMenu>
           </NavbarContainer>
         </Nav>
