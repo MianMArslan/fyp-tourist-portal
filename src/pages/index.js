@@ -25,9 +25,9 @@ const Home = () => {
       <Navbar toggle={toggle} />
       <Hero {...homeObjSix} />
       <Destination {...homeObjthree} />
-      <Deals {...homeObjtwo} />
+      {/* <Deals {...homeObjtwo} />
       <Aboutpage {...homeObjOne} />
-      <Footer {...homeObjfour} />
+      <Footer {...homeObjfour} /> */}
       <Chat />
     </>
   );

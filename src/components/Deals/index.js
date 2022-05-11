@@ -7,7 +7,6 @@ import {
   DealsWrapper,
   DealsCard,
   DealsIcon,
-  DealsH2,
   DealsH3,
   DealsP,
   Button,
@@ -28,8 +27,7 @@ const Deals = ({ id }) => {
   return (
     <>
       <DealsContainer id={id}>
-        <DealsH1>Hot Deals</DealsH1>
-        <DealsH2>OFF THE BEATEN TRACK</DealsH2>
+        <DealsH1>Discount Deals</DealsH1>
         <DealsWrapper data-aos="fade-up">
           <DealsCard>
             <DealsIcon src={img1} alt=""></DealsIcon>
