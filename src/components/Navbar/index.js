@@ -8,8 +8,6 @@ import {
   NavLinks,
   NavItem,
   MobileIcon,
-  NavBtnLink,
-  NavBtn,
 } from "./NavbarElement";
 import Badge from "@mui/material/Badge";
 import { IconButton } from "@mui/material";
@@ -18,7 +16,7 @@ import { styled } from "@mui/material/styles";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
 import img2 from "../images/img4.jpg";
-import img1 from "../images/off the beaten track.png";
+import img1 from "../images/shortLogo.PNG";
 import Search from "../searchbar/search";
 import { GET } from "../../services/httpClient";
 
@@ -73,7 +71,9 @@ const Navbar = ({ toggle }) => {
   const [count, setCount] = useState(0);
   const [notification, setNotification] = React.useState(false);
   const getNotification = async () => {
-    let data = await GET("/agency/notification", { params: { isRead: false } });
+    let data = await GET("/tourist/notification", {
+      params: { isRead: false },
+    });
     if (data) {
       setRows(data.rows);
       setCount(data.count);
@@ -191,9 +191,6 @@ const Navbar = ({ toggle }) => {
                   <Avatar alt="Remy Sharp" src={img2} />
                 </StyledBadge>
               </Stack>
-              <NavBtn>
-                <NavBtnLink to="/Agency">Agency Portal</NavBtnLink>
-              </NavBtn>
             </NavMenu>
           </NavbarContainer>
         </Nav>
