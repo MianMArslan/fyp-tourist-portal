@@ -25,7 +25,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@mui/material/Divider";
 import Logout from "@mui/icons-material/Logout";
 import PasswordIcon from "@mui/icons-material/Password";
-
+import Notification from "../Notification/index";
 const styles = {
   NavbarAvater: {
     width: "130px",
@@ -274,6 +274,18 @@ const Navbar = ({ toggle }) => {
           </NavbarContainer>
         </Nav>
       </IconContext.Provider>
+      {notification ? (
+        <div
+          style={{
+            zIndex: 10,
+            position: "fixed",
+            top: "70px",
+            right: "10px",
+          }}
+        >
+          <Notification rows={rows} />
+        </div>
+      ) : null}
     </>
   );
 };
