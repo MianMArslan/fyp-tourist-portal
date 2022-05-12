@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import ChatIcon from "@mui/icons-material/Chat";
 import { IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import "./style.css";
 import ChatDialog from "../Chat/chatDialog/index";
+import Snackbar from "../snakebar/index";
 const Chat = () => {
   const [icon, setIcon] = React.useState(false);
 
