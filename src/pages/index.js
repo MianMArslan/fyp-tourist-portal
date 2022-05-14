@@ -12,6 +12,7 @@ import { homeObjthree } from "../components/Destinations";
 import { homeObjfour } from "../components/footer/footer";
 import { homeObjSix } from "../components/Hero";
 import Chat from "../components/Chat";
+import Services from "../components/Services/index"
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,6 +26,7 @@ const Home = () => {
       <Navbar toggle={toggle} />
       <Hero {...homeObjSix} />
       <Destination {...homeObjthree} />
+      <Services />
       {/* <Deals {...homeObjtwo} />
       <Aboutpage {...homeObjOne} />
       <Footer {...homeObjfour} /> */}

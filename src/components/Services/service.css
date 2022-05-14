@@ -1,0 +1,113 @@
+.main-container {
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffba46;
+  
+    @media screen and (max-width: 768px) {
+      height: 1100px;
+    }
+  }
+  .main-service-slider-container {
+    width: 90%;
+    height: 300px;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  #service-slider {
+    width: 100%;
+    height: 120%;
+    margin-left: -55%;
+    margin-top: 15%;
+    white-space: nowrap;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+  }
+  #service-slider::-webkit-scrollbar {
+    display: none;
+  }
+  .service-slider-icon.left,
+  .service-slider-icon.right {
+    background-color: white;
+    border-radius: 100%;
+    position: absolute;
+    opacity: 0.5;
+    box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 12%);
+    cursor: pointer;
+    margin-top: 15%;
+  }
+  .service-slider-icon.left {
+    left: -4%;
+  }
+  .service-slider-icon.right {
+    right: -3%;
+  }
+  
+  .service-slider-icon.left:hover,
+  .service-slider-icon.right:hover {
+    opacity: 1;
+  }
+  .service-slider-card {
+    width: 280px;
+    height: 350px;
+    background-color: white;
+    border-radius: 10px;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 12%);
+  }
+  
+  .service-slider-card:hover {
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .service-slider-card-image {
+    width: 100%;
+    height: 220px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .service-slider-card-title,
+  .service-slider-card-description {
+    margin: 5px 0px 5px 10px;
+  }
+  .service-slider-card-title {
+    font-weight: 500;
+    margin-top: 10px;
+  }
+  .service-slider-card-description {
+    opacity: 0.5;
+    font-size: 13px;
+  }
+  .DealsH1 {
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 340px;
+      margin-left: 40%;
+  }
+  .Button {
+    background-color: #fcdc00;
+    width: 100px;
+    align-items:"center";
+    color: white;
+    padding: 10px 15px;
+    margin-top: 10px;
+    margin-left: 80px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    outline:none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  .Button:hover{
+    background-color:#ffa000;
+}
