@@ -6,6 +6,7 @@ import PeopleAround from "../chatDialog/peopleAround/index";
 import ChatComponent from "../chatDialog/chatComponent/index";
 import { GET, POST } from "../../../services/httpClient";
 import _ from "lodash";
+import { setIntervalAsync } from "set-interval-async/dynamic";
 
 const ChatDialog = (props) => {
   const { closeChat, updateState } = props;
@@ -16,9 +17,10 @@ const ChatDialog = (props) => {
   const [open, setOpen] = useState(false);
   const [type, setType] = useState("success");
   const [snakbarMessage, setsnakbarMessage] = useState(false);
-  if (closeChat) {
-    closeChatRoom();
-  }
+  // if (closeChat) {
+  //   closeChatRoom();
+  // }
+
   const closeChatRoom = async () => {
     let record = await POST("/tourist/chatRoomClose");
     if (record) updateState(false);
@@ -43,10 +45,10 @@ const ChatDialog = (props) => {
   useEffect(() => {
     peopleAround();
     checkChatRequest();
+    setTimeout(async () => {
+      await closeChatRoom();
+    }, 900000);
   }, []);
-  console.log(selected);
-  console.log(room);
-  console.log(row);
   return (
     <>
       <div className="chatDialog">
@@ -70,10 +72,18 @@ const ChatDialog = (props) => {
           </CardContent>
         )}
         {selected && (
-          <ChatComponent room={room.data.roomId} username={row[0].firstName} />
+          <ChatComponent
+            room={room.data.roomId}
+            username={row[0].firstName}
+            close={closeChatRoom}
+          />
         )}
         {check && !selected && (
-          <ChatComponent room={check.roomId} username={row[0].firstName} />
+          <ChatComponent
+            room={check.roomId}
+            username={row[0].firstName}
+            close={closeChatRoom}
+          />
         )}
         {open && (
           <Snackbar

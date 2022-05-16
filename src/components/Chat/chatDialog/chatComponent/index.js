@@ -7,7 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import { POST } from "../../../../services/httpClient";
 const socket = io.connect("http://localhost:4001");
 
-function Chat({ username, room, close, selected }) {
+function Chat({ username, room, close }) {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
 
@@ -32,12 +32,11 @@ function Chat({ username, room, close, selected }) {
     await socket.emit("disconnect");
   };
   const closeChatRoom = async () => {
-    let record = await POST("/tourist/chatRoomClose");
-    if (record) {
-      await closeConnection();
-      close(true);
-      selected(false);
-    }
+    // let record = await POST("/tourist/chatRoomClose");
+    // if (record) {
+    // await closeConnection();
+    await close();
+    // }
   };
   useEffect(() => {
     socket.emit("join_room", room);
@@ -86,7 +85,9 @@ function Chat({ username, room, close, selected }) {
         <IconButton
           color="secondary"
           aria-label="close"
-          onClick={closeChatRoom}
+          onClick={() => {
+            closeChatRoom();
+          }}
         >
           <CancelPresentationRoundedIcon />
         </IconButton>

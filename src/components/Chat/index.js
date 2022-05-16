@@ -16,9 +16,9 @@ const Chat = () => {
         <IconButton
           onClick={() => {
             setIcon(!icon);
-            if (!icon && closeChat) {
-              setCloseChat(false);
-            }
+            // if (!icon && closeChat) {
+            //   setCloseChat(false);
+            // }
           }}
         >
           {icon ? (
@@ -28,7 +28,7 @@ const Chat = () => {
           )}
         </IconButton>
       </div>
-      {icon && <ChatDialog closeChat={closeChat} updateState={setCloseChat} />}
+      {icon && <ChatDialog updateState={setIcon} />}
     </>
   );
 };
