@@ -1,95 +1,52 @@
-.main-container {
+.Button:hover {
+  background-color: #ffa000;
+}
+.mainContainer {
   height: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #ffba46;
-
-  @media screen and (max-width: 768px) {
-    height: 1100px;
-  }
-}
-.main-slider-container {
-  width: 90%;
-  height: 300px;
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-#slider {
   width: 100%;
-  height: 100%;
-  margin-left: -60%;
-  margin-top: 15%;
-  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  background: #ffba46;
+}
+.containerHeading {
+  display: flex;
+  font-size: 25px;
+  color: #fff;
+  justify-content: center;
+}
+
+.containerBody {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  justify-content: center;
+  margin: 40px;
   overflow-x: scroll;
   scrollbar-width: none;
   scroll-behavior: smooth;
+  white-space: nowrap;
 }
-#slider::-webkit-scrollbar {
-  display: none;
+.containerBody::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
 }
-.slider-icon.left,
-.slider-icon.right {
-  background-color: white;
-  border-radius: 100%;
-  position: absolute;
-  opacity: 0.5;
-  box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 12%);
-  cursor: pointer;
-  margin-top: 15%;
+.container {
+  display: flex;
 }
-.slider-icon.left {
-  left: -4%;
-}
-.slider-icon.right {
-  right: -3%;
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.slider-icon.left:hover,
-.slider-icon.right:hover {
-  opacity: 1;
-}
-.slider-card {
-  width: 280px;
-  height: 300px;
-  background-color: white;
-  border-radius: 10px;
-  display: inline-block;
-  margin-left: 5px;
-  margin-right: 5px;
-  box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 12%);
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.slider-card:hover {
+.cardHover:hover {
   transform: scale(1.02);
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 }
-
-.slider-card-image {
-  width: 100%;
-  height: 220px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.slider-card-title,
-.slider-card-description {
-  margin: 5px 0px 5px 10px;
-}
-.slider-card-title {
-  font-weight: 500;
-  margin-top: 10px;
-}
-.slider-card-description {
-  opacity: 0.5;
-  font-size: 13px;
-}
-.DealsH1 {
-    font-size: 2.5rem;
-    color: #fff;
-    margin-bottom: 340px;
-    margin-left: 40%;
-}
-

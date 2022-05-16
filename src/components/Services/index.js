@@ -1,40 +1,229 @@
-import React from "react";
-import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import React, { useEffect, useState } from "react";
 import "./service.css";
-import Cards from './card';
-
+import Cards from "./card";
+import { GET } from "../../services/httpClient";
 export const homeObjthree = {
   id: "destination",
 };
 const Services = () => {
-
-
-  const slideleft = () => {
-    var slider = document.getElementById("service-slider");
-    slider.scrollLeft = slider.scrollLeft - 750;
+  const [slides, setSlides] = React.useState([
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20788/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20789/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20780/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20781/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20782/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20783/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20784/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20785/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20780/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20797/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20791/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20792/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20793/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20794/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20795/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20796/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20799/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20767/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20768/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20769/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20770/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20771/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20772/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20773/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20774/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days",
+      button: "Book Now",
+    },
+    {
+      imageUrl:
+        "https://images.pexels.com/photos/20774/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+      destination: "Hunza",
+      description: "Explore the Hunza in two days ",
+      button: "Book Now",
+    },
+  ]);
+  const getAds = async () => {
+    let record = await GET("/tourist/ads");
+    if (record) setSlides(record);
   };
 
-  const slideright = () => {
-    var slider = document.getElementById("service-slider");
-    slider.scrollLeft = slider.scrollLeft + 650;
-  };
+  useEffect(() => {
+    getAds();
+  }, []);
   return (
     <>
-      <div className="main-container">
-        <div className ="main-service-slider-container">
-      <h1 className="DealsH1">Services</h1>
-          <KeyboardArrowLeftIcon
-            size={40}
-            className="service-slider-icon left"
-            onClick={slideleft}
-          />
-          <Cards />
-          <ChevronRightIcon
-            size={40}
-            className="service-slider-icon right"
-            onClick={slideright}
-          />
+      <div className="mainContainer">
+        <div className="containerHeading">
+          <h1></h1>
+        </div>
+        <div className="containerBody">
+          <div className="cardContainer">
+            {slides.map((e) => (
+              <Cards key={e.id} slide={e} />
+            ))}
+          </div>
         </div>
       </div>
     </>

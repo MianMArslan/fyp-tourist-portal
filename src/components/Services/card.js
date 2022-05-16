@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { GET } from "../../services/httpClient";
 import "./service.css";
+import Card from "@mui/material/Card";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
 
-const Cards = () => {
-  const [slides, setSlides] = useState([
+const Cards = (props) => {
+  const { slide } = props;
+  const [slides, setSlides] = React.useState([
     {
       imageUrl:
         "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
@@ -201,37 +205,24 @@ const Cards = () => {
       button: "Book Now",
     },
   ]);
-
-  const getAds = async () => {
-    let record = await GET("/tourist/ads");
-    if (record) setSlides(record);
-  };
-
-  useEffect(() => {
-    getAds();
-  }, []);
   return (
     <>
-      <div id="service-slider">
-        {slides.map((slide, index) => {
-          return (
-            <div className="service-slider-card" key={index}>
-              <div
-                className="service-slider-card-image"
-                style={{
-                  backgroundImage: `url(${slide.imageUrl})`,
-                  backgroundSize: "cover",
-                }}
-              ></div>
-              <p className="service-slider-card-title">{slide.destination}</p>
-              <p className="service-slider-card-description">
-                {slide.description}
-              </p>
-              <button className="Button">Book Now</button>
-            </div>
-          );
-        })}
-      </div>
+      <Card
+        className="cardHover"
+        sx={{ width: 300, height: 280, mr: 2, mt: 2, mb: 2 }}
+      >
+        <CardMedia
+          component="img"
+          height="194"
+          image={slide.imageUrl}
+          alt="Paella dish"
+        />
+        <CardContent className="cardContent">
+          <Button color="warning" variant="contained">
+            Book Now
+          </Button>
+        </CardContent>
+      </Card>
     </>
   );
 };
