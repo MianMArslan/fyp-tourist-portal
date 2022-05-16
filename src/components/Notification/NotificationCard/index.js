@@ -9,7 +9,7 @@ import { UPDATE } from "../../../services/httpClient";
 export default function NotificationCard(props) {
   const { data, state } = props;
   const updateNotificationStatus = async () => {
-    let record = await UPDATE("/agency/notification", { id: data.id });
+    let record = await UPDATE("/tourist/notification", { id: data.id });
     if (record) await state();
   };
   return (

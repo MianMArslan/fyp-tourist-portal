@@ -35,7 +35,7 @@ export default function Notifications(props) {
   };
 
   const getNotificationRead = async () => {
-    let data = await GET("/tourist/notification", { params: { isRead: true } });
+    let data = await GET("/tourist/notification", { params: { isRead: 1 } });
     if (!_.isEmpty(data.rows)) {
       setRow(data.rows);
     } else setRow(null);
