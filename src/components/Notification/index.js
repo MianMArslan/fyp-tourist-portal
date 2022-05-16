@@ -57,7 +57,7 @@ export default function Notifications(props) {
   React.useEffect(() => {
     setTimeout(() => {
       setProgress(true);
-    }, 3000);
+    }, 2000);
   }, []);
   return (
     <Card
