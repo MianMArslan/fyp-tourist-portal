@@ -7,13 +7,18 @@ import ChatDialog from "../Chat/chatDialog/index";
 import Snackbar from "../snakebar/index";
 const Chat = () => {
   const [icon, setIcon] = React.useState(false);
-
+  const [closeChat, setCloseChat] = React.useState(false);
+  const [openChat, setOpenChat] = React.useState(false);
+  const updateIcon = async () => {};
   return (
     <>
       <div className="chat">
         <IconButton
           onClick={() => {
             setIcon(!icon);
+            if (!icon && closeChat) {
+              setCloseChat(false);
+            }
           }}
         >
           {icon ? (
@@ -23,7 +28,7 @@ const Chat = () => {
           )}
         </IconButton>
       </div>
-      {icon && <ChatDialog />}
+      {icon && <ChatDialog closeChat={closeChat} updateState={setCloseChat} />}
     </>
   );
 };
