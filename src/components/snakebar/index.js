@@ -12,10 +12,8 @@ export default function CustomizedSnackbars(props) {
     if (reason === "clickaway") {
       return;
     }
-
     setOpen(false);
   };
-
   return (
     <Snackbar
       open={open}

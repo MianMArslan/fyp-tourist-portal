@@ -26,6 +26,8 @@ import Divider from "@mui/material/Divider";
 import Logout from "@mui/icons-material/Logout";
 import PasswordIcon from "@mui/icons-material/Password";
 import Notification from "../Notification/index";
+import ChangePasswordDialog from "../changePasswordDialog/index";
+
 const styles = {
   NavbarAvater: {
     width: "130px",
@@ -77,6 +79,8 @@ const Navbar = ({ toggle }) => {
   const [count, setCount] = useState(0);
   const [notification, setNotification] = React.useState(false);
   const [name, setName] = useState("");
+  const [openDialog, setOpenDialog] = React.useState(false);
+
   const getNotification = async () => {
     let data = await GET("/tourist/notification", {
       params: { isRead: false },
@@ -257,7 +261,11 @@ const Navbar = ({ toggle }) => {
                   <Avatar /> {name}
                 </MenuItem>
                 <Divider />
-                <MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    setOpenDialog(true);
+                  }}
+                >
                   <ListItemIcon>
                     <PasswordIcon fontSize="small" />
                   </ListItemIcon>
@@ -286,6 +294,7 @@ const Navbar = ({ toggle }) => {
           <Notification rows={rows} />
         </div>
       ) : null}
+      {openDialog && <ChangePasswordDialog setOpenDialog={setOpenDialog} />}
     </>
   );
 };

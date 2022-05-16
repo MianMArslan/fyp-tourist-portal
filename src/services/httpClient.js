@@ -48,7 +48,7 @@ export async function UPDATE(url, params) {
     const response = await httpClient.put(url, params);
     return response;
   } catch (error) {
-    console.error(error);
+    return error?.response;
   }
 }
 
