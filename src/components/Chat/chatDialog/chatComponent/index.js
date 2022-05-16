@@ -29,14 +29,11 @@ function Chat({ username, room, close }) {
     }
   };
   const closeConnection = async () => {
-    await socket.emit("disconnect");
+    await socket.emit("close");
   };
   const closeChatRoom = async () => {
-    // let record = await POST("/tourist/chatRoomClose");
-    // if (record) {
-    // await closeConnection();
+    await closeConnection();
     await close();
-    // }
   };
   useEffect(() => {
     socket.emit("join_room", room);
