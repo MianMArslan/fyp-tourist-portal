@@ -25,8 +25,10 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@mui/material/Divider";
 import Logout from "@mui/icons-material/Logout";
 import PasswordIcon from "@mui/icons-material/Password";
+import ReceiptIcon from "@mui/icons-material/Receipt";
 import Notification from "../Notification/index";
 import ChangePasswordDialog from "../changePasswordDialog/index";
+import OrderDetailDialog from "../OrderDetailDialog/index";
 
 const styles = {
   NavbarAvater: {
@@ -80,6 +82,7 @@ const Navbar = ({ toggle }) => {
   const [notification, setNotification] = React.useState(false);
   const [name, setName] = useState("");
   const [openDialog, setOpenDialog] = React.useState(false);
+  const [viewOrder, setViewOrder] = React.useState(false);
 
   const getNotification = async () => {
     let data = await GET("/tourist/notification", {
@@ -263,6 +266,16 @@ const Navbar = ({ toggle }) => {
                 <Divider />
                 <MenuItem
                   onClick={() => {
+                    setViewOrder(true);
+                  }}
+                >
+                  <ListItemIcon>
+                    <ReceiptIcon fontSize="small" />
+                  </ListItemIcon>
+                  View Orders
+                </MenuItem>
+                <MenuItem
+                  onClick={() => {
                     setOpenDialog(true);
                   }}
                 >
@@ -295,6 +308,7 @@ const Navbar = ({ toggle }) => {
         </div>
       ) : null}
       {openDialog && <ChangePasswordDialog setOpenDialog={setOpenDialog} />}
+      {viewOrder && <OrderDetailDialog setViewOrder={setViewOrder} />}
     </>
   );
 };

@@ -2,14 +2,11 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
-import "./style.css";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import CardContent from "@mui/material/CardContent";
-import Booking from "../BookingDialog/index";
 
 export default function FormDialog(props) {
   const { dialogData, updateState } = props;
@@ -23,12 +20,7 @@ export default function FormDialog(props) {
   const [booking, setBooking] = React.useState(false);
 
   const handleClose = () => {
-    updateState(false);
     setOpen(false);
-  };
-
-  const handleBookNow = () => {
-    setBooking(true);
   };
   return (
     <div className="dialog">
@@ -60,14 +52,8 @@ export default function FormDialog(props) {
           <Button style={{ color: "#fb9e00" }} onClick={handleClose}>
             Back
           </Button>
-          <Button style={{ color: "#fb9e00" }} onClick={handleBookNow}>
-            Book Now
-          </Button>
         </DialogActions>
       </Dialog>
-      {booking && (
-        <Booking dialogData={dialogData} setOpenDialog={setBooking} />
-      )}
     </div>
   );
 }

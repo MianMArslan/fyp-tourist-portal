@@ -205,7 +205,7 @@ const Services = () => {
     },
   ]);
   const getAds = async () => {
-    let record = await GET("/tourist/ads");
+    let record = await GET("/tourist/discountedAds");
     if (record) setSlides(record);
   };
 
@@ -216,7 +216,7 @@ const Services = () => {
     <>
       <div className="mainContainer">
         <div className="containerHeading">
-          <h1></h1>
+          <h1>Hot Deals</h1>
         </div>
         <div className="containerBody">
           <div className="cardContainer">
