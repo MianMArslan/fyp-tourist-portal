@@ -142,24 +142,13 @@ const Navbar = ({ toggle }) => {
               </NavItem>
               <NavItem>
                 <NavLinks
-                  to="services"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                >
-                  SERVICES
-                </NavLinks>
-              </NavItem>
-              <NavItem>
-                <NavLinks
                   to="destination"
                   smooth={true}
                   duration={500}
                   spy={true}
                   exact="true"
                 >
-                  DESTINATION
+                  Destination
                 </NavLinks>
               </NavItem>
               <NavItem>
@@ -170,7 +159,7 @@ const Navbar = ({ toggle }) => {
                   spy={true}
                   exact="true"
                 >
-                  DEALS
+                  Deals
                 </NavLinks>
               </NavItem>
               <NavItem>

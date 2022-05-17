@@ -4,10 +4,10 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
-
+import BookingDialog from "../BookingDialog/index";
 const Cards = (props) => {
   const { slide } = props;
-  const [slides, setSlides] = React.useState([]);
+  const [openDialog, setOpenDialog] = useState(false);
   return (
     <>
       <Card
@@ -21,11 +21,20 @@ const Cards = (props) => {
           alt="Paella dish"
         />
         <CardContent className="cardContent">
-          <Button color="warning" variant="contained">
+          <Button
+            color="warning"
+            variant="contained"
+            onClick={() => {
+              setOpenDialog(true);
+            }}
+          >
             Book Now
           </Button>
         </CardContent>
       </Card>
+      {openDialog && (
+        <BookingDialog dialogData={slide} updateState={setOpenDialog} />
+      )}
     </>
   );
 };

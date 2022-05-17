@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./service.css";
 import Cards from "./card";
 import { GET } from "../../services/httpClient";
-export const homeObjthree = {
-  id: "destination",
+export const homeObjDeals = {
+  id: "deals",
 };
 const Services = () => {
   const [slides, setSlides] = React.useState([
