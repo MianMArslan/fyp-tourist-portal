@@ -26,7 +26,9 @@ const Cards = (props) => {
         />
         <CardContent className="cardContent">
           <Typography>Destination {slide.destination}</Typography>
-          <Typography>Click to view Detail</Typography>
+          <Typography style={{ color: "#fb9e00" }}>
+            Click to view Detail
+          </Typography>
         </CardContent>
       </Card>
       {openDialog && (
