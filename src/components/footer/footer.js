@@ -17,9 +17,7 @@ export const homeObjfour = {
     id:'contact'
 }
 
-const Footer = ({
-    id
-}) => {
+const Footer = ({id}) => {
     const toggleHome = () =>{
         scroll.scrollToTop();
     }

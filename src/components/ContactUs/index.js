@@ -16,14 +16,14 @@ import {
   TopLine,
   Heading,
   Button
-} from "./AboutElements";
+} from "./ContactElements";
 
 import img1 from "../images/off the beaten track.png";
 import { TextField, Box } from "@mui/material";
 
 
 export const homeObjOne = {
-  id: "about",
+  id: "contact",
   lightBg: false,
   lightText: true,
   topLine: "OFF THE BEATEN TRACK",
@@ -31,7 +31,7 @@ export const homeObjOne = {
   imgStart: false,
 };
 
-const Aboutpage = ({
+const ContactUs = ({
   lightBg,
   lightText,
   id,
@@ -197,4 +197,4 @@ const Aboutpage = ({
   );
 };
 
-export default Aboutpage;
+export default ContactUs;

@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import "./destination.css";
 import Cards from "./card";
 import { GET } from "../../services/httpClient";
+
 export const homeObjthree = {
-  id: "destination",
-};
-const Destination = () => {
+  id:"destination",
+}
+
+const Destination = ({id}) => {
   const [slides, setSlides] = React.useState([]);
   const getAds = async () => {
     let record = await GET("/tourist/ads");
@@ -17,7 +19,7 @@ const Destination = () => {
   }, []);
   return (
     <>
-      <div className="mainContainer">
+      <div className="mainContainer" id = {id}>
         <div className="containerHeading">
           <h1>Destination</h1>
         </div>

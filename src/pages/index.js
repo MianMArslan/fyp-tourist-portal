@@ -3,18 +3,15 @@ import SideBar from "../components/SideBar";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Destination from "../components/Destinations";
-import Recommended from "../components/Recommended";
-import Aboutpage from "../components/AboutPage";
-import { homeObjOne } from "../components/AboutPage";
+import Recommended , {homeObjTwo} from "../components/Recommended/index";
+import ContactUs from "../components/ContactUs/index";
+import { homeObjOne } from "../components/ContactUs/index";
 import Footer from "../components/footer/footer";
 import { homeObjDeals } from "../components/HotDeals";
-import { homeObjthree } from "../components/Destinations";
-import { homeObjfour } from "../components/footer/footer";
+import { homeObjthree } from "../components/Destinations/index";
 import { homeObjSix } from "../components/Hero";
 import Chat from "../components/Chat";
 import HotDeals from "../components/HotDeals";
-// import Services from "../components/Services/index"
-import BookNow from "../components/BookNow/index"
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,14 +26,11 @@ const Home = () => {
       <Hero {...homeObjSix} />
       <Destination {...homeObjthree} />
       <HotDeals {...homeObjDeals} />
-      <Recommended />
-      {/* <Services /> */}
-      {/* <Deals {...homeObjtwo} /> */}
-      <Aboutpage {...homeObjOne} />
-      <Footer {...homeObjfour} />
-      {/* <BookNow /> */}
+      <Recommended{...homeObjTwo} />
+      <ContactUs {...homeObjOne} />
+      <Footer />
       <Chat />
     </>
   );
 };
-export default Home;
+export default Home; 

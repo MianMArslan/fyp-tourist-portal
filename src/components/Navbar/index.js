@@ -105,6 +105,7 @@ const Navbar = ({ toggle }) => {
   useEffect(() => {
     window.addEventListener("scroll", changeNav);
   }, []);
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -142,7 +143,7 @@ const Navbar = ({ toggle }) => {
               </NavItem>
               <NavItem>
                 <NavLinks
-                  to="destination"
+                  to='destination'
                   smooth={true}
                   duration={500}
                   spy={true}
@@ -164,6 +165,17 @@ const Navbar = ({ toggle }) => {
               </NavItem>
               <NavItem>
                 <NavLinks
+                  to="recommended"
+                  smooth={true}
+                  duration={500}
+                  spy={true}
+                  exact="true"
+                >
+                  Recommended
+                </NavLinks>
+              </NavItem>
+              <NavItem>
+                <NavLinks
                   to="contact"
                   smooth={true}
                   duration={500}
@@ -171,17 +183,6 @@ const Navbar = ({ toggle }) => {
                   exact="true"
                 >
                   CONTACT
-                </NavLinks>
-              </NavItem>
-              <NavItem>
-                <NavLinks
-                  to="about"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                >
-                  ABOUT
                 </NavLinks>
               </NavItem>
               <IconButton

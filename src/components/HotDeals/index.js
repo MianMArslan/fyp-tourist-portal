@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import "./service.css";
 import Cards from "./card";
 import { GET } from "../../services/httpClient";
 export const homeObjDeals = {
   id: "deals",
 };
-const Services = () => {
+const Services = ({id}) => {
   const [slides, setSlides] = React.useState([
     {
       imageUrl:
@@ -214,7 +214,7 @@ const Services = () => {
   }, []);
   return (
     <>
-      <div className="mainContainer">
+      <div className="mainContainer" id={id}>
         <div className="containerHeading">
           <h1>Hot Deals</h1>
         </div>
