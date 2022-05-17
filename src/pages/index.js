@@ -13,6 +13,8 @@ import { homeObjfour } from "../components/footer/footer";
 import { homeObjSix } from "../components/Hero";
 import Chat from "../components/Chat";
 import HotDeals from "../components/HotDeals";
+// import Services from "../components/Services/index"
+import BookNow from "../components/BookNow/index"
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,6 +30,11 @@ const Home = () => {
       <Destination {...homeObjthree} />
       <HotDeals {...homeObjDeals} />
       <Recommended />
+      {/* <Services /> */}
+      {/* <Deals {...homeObjtwo} /> */}
+      <Aboutpage {...homeObjOne} />
+      <Footer {...homeObjfour} />
+      {/* <BookNow /> */}
       <Chat />
     </>
   );
