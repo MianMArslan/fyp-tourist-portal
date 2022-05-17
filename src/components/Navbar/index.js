@@ -98,10 +98,11 @@ const Navbar = ({ toggle }) => {
     if (data) setName(`${data.firstName} ${data.lastName}`);
   };
   useEffect(() => {
+    // let cookie = document.cookie;
+    // if (!cookie) window.location.replace("http://localhost:3000/");
     getNotification();
     getName();
   }, []);
-
   useEffect(() => {
     window.addEventListener("scroll", changeNav);
   }, []);
@@ -138,12 +139,12 @@ const Navbar = ({ toggle }) => {
                   spy={true}
                   exact="true"
                 >
-                  HOME
+                  Home
                 </NavLinks>
               </NavItem>
               <NavItem>
                 <NavLinks
-                  to='destination'
+                  to="destination"
                   smooth={true}
                   duration={500}
                   spy={true}
@@ -182,7 +183,7 @@ const Navbar = ({ toggle }) => {
                   spy={true}
                   exact="true"
                 >
-                  CONTACT
+                  Contact
                 </NavLinks>
               </NavItem>
               <IconButton
@@ -274,7 +275,11 @@ const Navbar = ({ toggle }) => {
                   </ListItemIcon>
                   Change Password
                 </MenuItem>
-                <MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    window.location.replace("http://localhost:3000/");
+                  }}
+                >
                   <ListItemIcon>
                     <Logout fontSize="small" />
                   </ListItemIcon>

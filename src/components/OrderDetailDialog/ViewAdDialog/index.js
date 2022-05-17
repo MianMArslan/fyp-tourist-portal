@@ -9,15 +9,14 @@ import Typography from "@mui/material/Typography";
 import CardContent from "@mui/material/CardContent";
 
 export default function FormDialog(props) {
-  const { dialogData, updateState } = props;
+  const { dialogData } = props;
 
   const [open, setOpen] = React.useState(true);
-  const [image, setImage] = React.useState(dialogData.imageUrl);
-  const [description, setDescription] = React.useState(dialogData.description);
-  const [destination, setDestination] = React.useState(dialogData.destination);
-  const [phone, setPhone] = React.useState(dialogData.phone);
-  const [discount, setDiscount] = React.useState(dialogData.discount);
-  const [booking, setBooking] = React.useState(false);
+  const [image] = React.useState(dialogData.imageUrl);
+  const [description] = React.useState(dialogData.description);
+  const [destination] = React.useState(dialogData.destination);
+  const [phone] = React.useState(dialogData.phone);
+  const [discount] = React.useState(dialogData.discount);
 
   const handleClose = () => {
     setOpen(false);

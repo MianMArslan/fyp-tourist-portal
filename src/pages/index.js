@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import SideBar from "../components/SideBar";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Destination from "../components/Destinations";
-import Recommended , {homeObjTwo} from "../components/Recommended/index";
+import Recommended, { homeObjTwo } from "../components/Recommended/index";
 import ContactUs from "../components/ContactUs/index";
 import { homeObjOne } from "../components/ContactUs/index";
 import Footer from "../components/footer/footer";
@@ -21,16 +20,15 @@ const Home = () => {
 
   return (
     <>
-      <SideBar isOpen={isOpen} toggle={toggle} />
       <Navbar toggle={toggle} />
       <Hero {...homeObjSix} />
       <Destination {...homeObjthree} />
       <HotDeals {...homeObjDeals} />
-      <Recommended{...homeObjTwo} />
+      <Recommended {...homeObjTwo} />
       <ContactUs {...homeObjOne} />
       <Footer />
       <Chat />
     </>
   );
 };
-export default Home; 
+export default Home;

@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import CloseIcon from "@mui/icons-material/Close";
 import Slide from "@mui/material/Slide";
 import Box from "@mui/material/Box";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -60,9 +60,7 @@ export default function OrderDetailDialog(props) {
       setLoading(false);
     }
   };
-  const viewAdDetail = () => {
-    setViewDialog(true);
-  };
+
   React.useEffect(() => {
     setTimeout(() => {
       getBooking();
