@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import CloseIcon from "@mui/icons-material/Close";
 import Slide from "@mui/material/Slide";
 import Box from "@mui/material/Box";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -48,6 +48,7 @@ export default function OrderDetailDialog(props) {
   const [loading, setLoading] = React.useState(true);
   const [viewDialog, setViewDialog] = React.useState(false);
   const [data, setData] = React.useState();
+
   const handleClose = () => {
     setOpen(false);
     setViewOrder(false);
@@ -60,15 +61,13 @@ export default function OrderDetailDialog(props) {
       setLoading(false);
     }
   };
-  const viewAdDetail = () => {
-    setViewDialog(true);
-  };
+
   React.useEffect(() => {
     setTimeout(() => {
       getBooking();
     }, 2000);
   }, []);
-  console.log(rows);
+
   return (
     <div>
       <Dialog
@@ -101,6 +100,7 @@ export default function OrderDetailDialog(props) {
                 <TableCell align="center">Request Date&nbsp;</TableCell>
                 <TableCell align="center">Ad Detail&nbsp;</TableCell>
                 <TableCell align="center">Status&nbsp;</TableCell>
+                <TableCell align="center">Review&nbsp;</TableCell>
               </TableRow>
             </TableHead>
             {!loading && (
@@ -124,7 +124,7 @@ export default function OrderDetailDialog(props) {
                         variant="outlined"
                         color="warning"
                         onClick={() => {
-                          setData(row.ad);
+                          setData(row);
                           setViewDialog(true);
                         }}
                       >
@@ -148,6 +148,29 @@ export default function OrderDetailDialog(props) {
                         <Badge color="error" badgeContent={row.status}></Badge>
                       )}
                     </TableCell>
+                    <TableCell align="center">
+                      {row.status === "pending" && (
+                        <Badge
+                          color="secondary"
+                          badgeContent={row.status}
+                        ></Badge>
+                      )}
+                      {row.status === "accept" && row.ad.adsReview && (
+                        <Badge
+                          color="warning"
+                          badgeContent={"Submitted"}
+                        ></Badge>
+                      )}
+                      {row.status === "accept" && !row?.ad?.adsReview && (
+                        <Badge
+                          color="secondary"
+                          badgeContent={"pending"}
+                        ></Badge>
+                      )}
+                      {row.status === "reject" && (
+                        <Badge color="error" badgeContent={"N/A"}></Badge>
+                      )}
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -169,7 +192,11 @@ export default function OrderDetailDialog(props) {
         )}
       </Dialog>
       {viewDialog && (
-        <ViewDialog dialogData={data} updateState={setViewDialog} />
+        <ViewDialog
+          dialogData={data}
+          updateState={setViewDialog}
+          getBooking={getBooking}
+        />
       )}
     </div>
   );

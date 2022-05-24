@@ -6,10 +6,9 @@ import PeopleAround from "../chatDialog/peopleAround/index";
 import ChatComponent from "../chatDialog/chatComponent/index";
 import { GET, POST } from "../../../services/httpClient";
 import _ from "lodash";
-import { setIntervalAsync } from "set-interval-async/dynamic";
 
 const ChatDialog = (props) => {
-  const { closeChat, updateState } = props;
+  const { updateState } = props;
   const [row, setRow] = useState();
   const [room, setRoom] = useState();
   const [check, setCheck] = useState("");

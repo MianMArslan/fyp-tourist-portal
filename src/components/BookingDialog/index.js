@@ -5,7 +5,6 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
-import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
@@ -31,17 +30,17 @@ export default function FormDialog(props) {
   const [type, setType] = React.useState(false);
   const [snackbarMessage, setSnackbarMessage] = React.useState(false);
   const [name, setName] = React.useState("");
-  const [adId, setAdId] = React.useState(dialogData.id);
+  const [adId] = React.useState(dialogData.id);
   const [phone, setPhone] = React.useState("");
-  const [image, setImage] = React.useState(dialogData.imageUrl);
-  const [description, setDescription] = React.useState(dialogData.description);
-  const [destination, setDestination] = React.useState(dialogData.destination);
-  const [phoneAgency, setPhoneAgency] = React.useState(dialogData.phone);
-  const [discount, setDiscount] = React.useState(dialogData.discount);
-  const [adOwnerId, setAdOwnerId] = React.useState(dialogData.userId);
+  const [image] = React.useState(dialogData.imageUrl);
+  const [description] = React.useState(dialogData.description);
+  const [destination] = React.useState(dialogData.destination);
+  const [phoneAgency] = React.useState(dialogData.phone);
+  const [discount] = React.useState(dialogData.discount);
+  const [adOwnerId] = React.useState(dialogData.userId);
   const [bookingDescription, setBookingDescription] = React.useState("");
   const [loading, setLoading] = React.useState(false);
-  let [color, setColor] = React.useState("#fb9e00");
+  let [color] = React.useState("#fb9e00");
 
   const handleClose = () => {
     setOpen(false);
@@ -132,7 +131,7 @@ export default function FormDialog(props) {
                 component="img"
                 height="194"
                 image={image}
-                alt="Paella dish"
+                alt="NFT GET Issue"
               />
               <CardContent>
                 <Typography variant="body2" color="text.secondary">

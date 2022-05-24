@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./service.css";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
@@ -33,7 +33,7 @@ const Cards = (props) => {
         </CardContent>
       </Card>
       {openDialog && (
-        <BookingDialog dialogData={slide} updateState={setOpenDialog} />
+        <BookingDialog dialogData={slide} setOpenDialog={setOpenDialog} />
       )}
     </>
   );

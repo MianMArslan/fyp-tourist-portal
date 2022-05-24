@@ -4,7 +4,7 @@ import io from "socket.io-client";
 import "./chat.css";
 import CancelPresentationRoundedIcon from "@mui/icons-material/CancelPresentationRounded";
 import IconButton from "@mui/material/IconButton";
-import { POST } from "../../../../services/httpClient";
+
 const socket = io.connect("http://localhost:4001");
 
 function Chat({ username, room, close }) {

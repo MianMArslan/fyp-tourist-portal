@@ -3,8 +3,6 @@ import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import { red } from "@mui/material/colors";
 import * as React from "react";
-import Typography from "@mui/material/Typography";
-import CardContent from "@mui/material/CardContent";
 import { POST } from "../../../../services/httpClient";
 
 export default function PeopleAround(props) {
