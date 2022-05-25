@@ -56,12 +56,11 @@ export default function FormDialog(props) {
       phone: phone,
       adOwnerId: adOwnerId,
     });
-    console.log(res);
     if (res?.code === 200) {
       setLoading(false);
       setType("success");
       setOpenSnackbar(true);
-      setSnackbarMessage(res?.data.message);
+      setSnackbarMessage(res?.message);
       setTimeout(() => {
         handleClose();
       }, 1500);
