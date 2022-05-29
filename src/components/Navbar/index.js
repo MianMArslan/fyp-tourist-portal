@@ -29,6 +29,8 @@ import ReceiptIcon from "@mui/icons-material/Receipt";
 import Notification from "../Notification/index";
 import ChangePasswordDialog from "../changePasswordDialog/index";
 import OrderDetailDialog from "../OrderDetailDialog/index";
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 
 const styles = {
   NavbarAvater: {
@@ -277,6 +279,7 @@ const Navbar = ({ toggle }) => {
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
+                    cookies.remove("accessToken");
                     window.location.replace("http://localhost:3000/");
                   }}
                 >
