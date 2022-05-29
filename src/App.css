@@ -1,0 +1,11 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Encode Sans Expanded",
+    sans-serif;
+  }
+.link{
+    text-decoration: none;
+    color: inherit;
+} 
