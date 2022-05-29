@@ -1,1 +1,0 @@
-# fyp-tourist-portal
