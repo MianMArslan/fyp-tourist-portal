@@ -7,6 +7,7 @@ import {
 } from "./styles";
 import {Data} from "../data"
 import "./searchbar.css"
+import OpenDialogue from "../SelectItem";
 
 function Search() {
   const targetRef = useRef(null);
@@ -17,6 +18,11 @@ function Search() {
   useEffect(() => {
     targetRef.current.value = "";
   }, [showSearchInput]);
+
+  const [data, setData] = useState(null);
+
+  const [openDialog, setOpenDialog] = useState(false);
+  const [open, setOpen] = useState(false);
 const [filteredData, setFilteredData] = useState([]);
 const [wordEntered, setWordEntered] = useState("");
 
@@ -59,13 +65,26 @@ const onSuggestHandler = (text) => {
   <div className="dataResult">
     {filteredData.slice(0, 15).map((value, key) => {
       return (
-        <div className="dataItem" target="_blank" key={key} onClick = {() => onSuggestHandler(value.cityname)}>
+        <>
+        <a className="dataItem" target="_blank" key={key} 
+        onClick = {() => setOpenDialog(true)}
+        // {() => onSuggestHandler(value.cityname)}
+        >
           <p>{value.cityname} </p>
-        </div>
+          </a>
+        </>
       );
     })}
+
   </div>
 )}
+
+ {openDialog && (
+          <OpenDialogue
+            setOpenDialog={setOpenDialog}
+            dialogData={data}
+          />
+        )}
 </div>
   );
 }

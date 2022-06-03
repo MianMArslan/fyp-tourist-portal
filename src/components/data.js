@@ -54,3 +54,116 @@ cityname : "Naran",
     cityname: "Oman",
 }
 ]
+
+export const dataItem = [
+  {
+    imageUrl:
+    "https://images.pexels.com/photos/20788/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+  destination: "Hunza",
+  description: "Explore the Hunza in two days",
+  button: "Book Now",
+  },
+  {
+    imageUrl:
+    "https://images.pexels.com/photos/20788/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+  destination: "Hunza",
+  description: "Explore the Hunza in two days",
+  button: "Book Now",
+  },{
+    imageUrl:
+    "https://images.pexels.com/photos/20788/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+  destination: "Hunza",
+  description: "Explore the Hunza in two days",
+  button: "Book Now",
+  },{
+    imageUrl:
+    "https://images.pexels.com/photos/20788/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+  destination: "Hunza",
+  description: "Explore the Hunza in two days",
+  button: "Book Now",
+  },{
+    imageUrl:
+    "https://images.pexels.com/photos/20788/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+  destination: "Hunza",
+  description: "Explore the Hunza in two days",
+  button: "Book Now",
+  },{
+    imageUrl:
+    "https://images.pexels.com/photos/20788/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+  destination: "Hunza",
+  description: "Explore the Hunza in two days",
+  button: "Book Now",
+  },{
+    imageUrl:
+    "https://images.pexels.com/photos/20788/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+  destination: "Hunza",
+  description: "Explore the Hunza in two days",
+  button: "Book Now",
+  },{
+    imageUrl:
+    "https://images.pexels.com/photos/20788/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+  destination: "Hunza",
+  description: "Explore the Hunza in two days",
+  button: "Book Now",
+  },{
+    imageUrl:
+    "https://images.pexels.com/photos/20788/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+  destination: "Hunza",
+  description: "Explore the Hunza in two days",
+  button: "Book Now",
+  },{
+    imageUrl:
+    "https://images.pexels.com/photos/20788/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+  destination: "Hunza",
+  description: "Explore the Hunza in two days",
+  button: "Book Now",
+  },{
+    imageUrl:
+    "https://images.pexels.com/photos/20788/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+  destination: "Hunza",
+  description: "Explore the Hunza in two days",
+  button: "Book Now",
+  },{
+    imageUrl:
+    "https://images.pexels.com/photos/20788/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+  destination: "Hunza",
+  description: "Explore the Hunza in two days",
+  button: "Book Now",
+  },{
+    imageUrl:
+    "https://images.pexels.com/photos/20788/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+  destination: "Hunza",
+  description: "Explore the Hunza in two days",
+  button: "Book Now",
+  },{
+    imageUrl:
+    "https://images.pexels.com/photos/20788/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+  destination: "Hunza",
+  description: "Explore the Hunza in two days",
+  button: "Book Now",
+  },{
+    imageUrl:
+    "https://images.pexels.com/photos/20788/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+  destination: "Hunza",
+  description: "Explore the Hunza in two days",
+  button: "Book Now",
+  },{
+    imageUrl:
+    "https://images.pexels.com/photos/20788/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+  destination: "Hunza",
+  description: "Explore the Hunza in two days",
+  button: "Book Now",
+  },{
+    imageUrl:
+    "https://images.pexels.com/photos/20788/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+  destination: "Hunza",
+  description: "Explore the Hunza in two days",
+  button: "Book Now",
+  },{
+    imageUrl:
+    "https://images.pexels.com/photos/20788/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+  destination: "Hunza",
+  description: "Explore the Hunza in two days",
+  button: "Book Now",
+  },
+]
