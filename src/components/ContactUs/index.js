@@ -26,7 +26,7 @@ export const homeObjOne = {
   lightBg: false,
   lightText: true,
   topLine: "OFF THE BEATEN TRACK",
-  headline: "Contact US",
+  headline: "Contact Us",
   imgStart: false,
 };
 
