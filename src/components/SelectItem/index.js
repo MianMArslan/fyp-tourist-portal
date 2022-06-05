@@ -1,47 +1,73 @@
-import React from 'react'
-import { Dialog, DialogContent, DialogTitle } from '@material-ui/core'
-import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
+import React, { useEffect, useState } from "react";
+import { Dialog, DialogContent, DialogTitle } from "@material-ui/core";
+import Card from "./card";
+import { GET } from "../../services/httpClient";
+import { Box } from "@mui/material";
+import RingLoader from "react-spinners/RingLoader";
+import { css } from "@emotion/react";
+import _ from "lodash";
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
+
 const OpenDialogue = (props) => {
+  const { dialogData, setOpenDialog, getRecord } = props;
 
-const { dialogData, setOpenDialog, getRecord } = props;
-const [open, setOpen] = React.useState(true);
-const slide = [
-    {
-        imageUrl: 'https://images.pexels.com/photos/20788/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350'
+  const [open, setOpen] = useState(true);
+  const [slides, setSlides] = useState([]);
+  const [progress, setProgress] = useState(false);
+  const [notFound, setNotFound] = useState(false);
+  let [color] = useState("#fb9e00");
+
+  const getAds = async () => {
+    setProgress(false);
+    let record = await GET("/tourist/search", {
+      params: { destination: dialogData.cityName },
+    });
+    if (!_.isEmpty(record)) {
+      setProgress(false);
+      setSlides(record);
+    } else {
+      setProgress(false);
+      setNotFound(true);
     }
-]
-  return (
+  };
+  useEffect(() => {
+    getAds();
+  }, []);
+  const handleClose = () => {
+    setOpenDialog(false);
+    setOpen(false);
+  };
 
-    <Dialog open = {open} maxWidth = "md">
+  return (
+    <>
+      <Dialog open={open} onClose={handleClose} maxWidth="md">
         <DialogTitle>Your Selected Item IS...</DialogTitle>
         <DialogContent>
-        <Card
-        className="cardHover"
-        sx={{ width: 300, height: 280, mr: 2, mt: 2, mb: 2 }}
-      >
-        <CardMedia
-          component="img"
-          height="194"
-          image={slide.imageUrl}
-          alt="Paella dish"
-        />
-        <CardContent className="cardContent">
-          <Button
-            color="warning"
-            variant="contained"
-          >
-            Book Now
-          </Button>
-        </CardContent>
-      </Card>
-
+          {slides.map((e) => (
+            <Card key={e.id} slide={e} handleClose={handleClose} />
+          ))}
         </DialogContent>
-    </Dialog>
+        {notFound && <h1>Result not available</h1>}
+        {progress && (
+          <Box
+            style={{
+              height: "100%",
+              width: "100",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <RingLoader color={color} css={override} loading={!progress} />
+          </Box>
+        )}
+      </Dialog>
+    </>
+  );
+};
 
-  )
-}
-
-export default OpenDialogue
+export default OpenDialogue;
