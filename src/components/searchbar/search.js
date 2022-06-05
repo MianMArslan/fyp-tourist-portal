@@ -3,10 +3,11 @@ import {
   Container,
   SearchInput,
   IconRightArrow,
-  IconMagnifyingGlass
+  IconMagnifyingGlass,
 } from "./styles";
-import {Data} from "../data"
-import "./searchbar.css"
+import { Data } from "../data";
+import "./searchbar.css";
+import OpenDialogue from "../SelectItem";
 
 function Search() {
   const targetRef = useRef(null);
@@ -17,56 +18,79 @@ function Search() {
   useEffect(() => {
     targetRef.current.value = "";
   }, [showSearchInput]);
-const [filteredData, setFilteredData] = useState([]);
-const [wordEntered, setWordEntered] = useState("");
 
-const handleFilter = (event) => {
-  const searchWord = event.target.value;
-  setWordEntered(searchWord);
-  const newFilter = Data.filter((value) => {
-    return value.cityname.toLowerCase().includes(searchWord.toLowerCase());
-  });
+  const [data, setData] = useState(null);
 
-  if (searchWord === "") {
+  const [openDialog, setOpenDialog] = useState(false);
+  const [filteredData, setFilteredData] = useState([]);
+  const [wordEntered, setWordEntered] = useState("");
+  const [selectedData, setSelectedData] = useState("");
+
+  const handleFilter = (event) => {
+    const searchWord = event.target.value;
+    setWordEntered(searchWord);
+    const newFilter = Data.filter((value) => {
+      return value.cityName.toLowerCase().includes(searchWord.toLowerCase());
+    });
+
+    if (searchWord === "") {
+      setFilteredData([]);
+    } else {
+      setFilteredData(newFilter);
+    }
+  };
+
+  const onSuggestHandler = (text) => {
+    setWordEntered(text);
+    setData();
     setFilteredData([]);
-  } else {
-    setFilteredData(newFilter);
-  }
-};
-
-const onSuggestHandler = (text) => {
-  setWordEntered(text)
-  setFilteredData([])
-}
+  };
 
   return (
-    <div className = "search">
-    <Container
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onFocus={() => setIsFocused(true)}
-      onBlur={() => setIsFocused(false)}
-      hover={showSearchInput}
-    >
-      <SearchInput ref={targetRef} showSearchInput={showSearchInput}
-      onChange = {handleFilter}
-    value={wordEntered}
-      
-      />
-      {showSearchInput ? <IconRightArrow /> : <IconMagnifyingGlass />}
-    </Container>
-    {filteredData.length !== 0 && (
-  <div className="dataResult">
-    {filteredData.slice(0, 15).map((value, key) => {
-      return (
-        <div className="dataItem" target="_blank" key={key} onClick = {() => onSuggestHandler(value.cityname)}>
-          <p>{value.cityname} </p>
+    <div className="search">
+      <Container
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        hover={showSearchInput}
+      >
+        <SearchInput
+          ref={targetRef}
+          showSearchInput={showSearchInput}
+          onChange={handleFilter}
+          value={wordEntered}
+        />
+        {showSearchInput ? <IconRightArrow /> : <IconMagnifyingGlass />}
+      </Container>
+      {filteredData.length !== 0 && (
+        <div className="dataResult">
+          {filteredData.slice(0, 15).map((value, key) => {
+            return (
+              <>
+                <a
+                  className="dataItem"
+                  target="_blank"
+                  key={key}
+                  onClick={() => {
+                    setSelectedData(value);
+                    setOpenDialog(true);
+                    onSuggestHandler(value.cityName);
+                  }}
+                  // {() => onSuggestHandler(value.cityName)}
+                >
+                  <p>{value.cityName} </p>
+                </a>
+              </>
+            );
+          })}
         </div>
-      );
-    })}
-  </div>
-)}
-</div>
+      )}
+
+      {openDialog && (
+        <OpenDialogue setOpenDialog={setOpenDialog} dialogData={selectedData} />
+      )}
+    </div>
   );
 }
 
